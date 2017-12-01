@@ -1,26 +1,45 @@
-<h3>List of books</h3>
-<div ng-repeat="item in list | orderBy:'author'">
-    <a href="/#/{{item.id}}">{{item.name}} - {{item.author}}</a>
-    <button ng-click="delete(item.id)">Delete</button>
-</div>
+<div class="row">
+    <div class="four columns">
+        <h3>New book</h3>
+        <div>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" ng-model="form.name"/>
+            </div>
+            <div>
+                <label for="author">Author</label>
+                <input type="text" id="author" ng-model="form.author"/>
+            </div>
+            <div>
+                <label for="year">Year</label>
+                <input type="text" id="year" ng-model="form.year"/>
+            </div>
+            <div>
+                <label for="gender">Gender</label>
+                <input type="text" id="gender" ng-model="form.gender"/>
+            </div>
+            <button ng-click="save()">Save</button>
+        </div>
+    </div>
 
-<h3>New book</h3>
-<div>
-    <div>
-        <label for="name">Name</label>
-        <input id="name" ng-model="form.name"/>
+    <div class="eight columns">
+        <h3>List of books</h3>
+
+        <table class="u-full-width">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in list | orderBy:'author'">
+                <td><a href="/#/{{item.id}}">{{item.name}}</a></td>
+                <td>{{item.author}}</td>
+                <td><button ng-click="delete(item.id)">Delete</button></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    <div>
-        <label for="author">Author</label>
-        <input id="author" ng-model="form.author"/>
-    </div>
-    <div>
-        <label for="year">Year</label>
-        <input id="year" ng-model="form.year"/>
-    </div>
-    <div>
-        <label for="gender">Gender</label>
-        <input id="gender" ng-model="form.gender"/>
-    </div>
-    <button ng-click="save()">Save</button>
 </div>

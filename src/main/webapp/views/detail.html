@@ -1,19 +1,21 @@
-<h3>Book detail</h3>
-<div>
+<div class="row">
+    <h3>Book detail</h3>
     <div>
-        <label for="name">Name</label>
-        <input id="name" ng-model="form.name"/>
-    </div>
-    <div>
-        <label for="author">Author</label>
-        <input id="author" ng-model="form.author"/>
-    </div>
-    <div>
-        <label for="year">Year</label>
-        <input id="year" ng-model="form.year"/>
-    </div>
-    <div>
-        <label for="gender">Gender</label>
-        <input id="gender" ng-model="form.gender"/>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" ng-model="form.name"  disabled />
+        </div>
+        <div>
+            <label for="author">Author</label>
+            <input type="text" id="author" ng-model="form.author" disabled />
+        </div>
+        <div>
+            <label for="year">Year</label>
+            <input type="text" id="year" ng-model="form.year" disabled />
+        </div>
+        <div>
+            <label for="gender">Gender</label>
+            <input type="text" id="gender" ng-model="form.gender"  disabled />
+        </div>
     </div>
 </div>
