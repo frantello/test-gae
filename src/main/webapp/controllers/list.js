@@ -11,6 +11,7 @@ angular.module('book')
 
         $scope.save = function() {
             book.save($scope.form, function() {
+                $scope.form = {};
                 $scope.load();
             });
         }
