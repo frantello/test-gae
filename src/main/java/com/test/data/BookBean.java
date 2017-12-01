@@ -16,15 +16,13 @@ public class BookBean {
     @Id
     private Long id;
 
-    private String data;
+    private String name;
 
-    public String getData() {
-        return data;
-    }
+    private String author;
 
-    public void setData(String data) {
-        this.data = data;
-    }
+    private Integer year;
+
+    private String gender;
 
     public Long getId() {
         return id;
@@ -32,5 +30,37 @@ public class BookBean {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
