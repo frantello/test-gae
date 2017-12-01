@@ -11,6 +11,9 @@ angular.module('book')
             },
             save: function (test, success) {
                 return $http.post("/rest/book", test).then(success);
+            },
+            delete: function (id, success) {
+                return $http.delete("/rest/book/" + id).then(success);
             }
         };
     });

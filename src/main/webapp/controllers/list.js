@@ -15,6 +15,12 @@ angular.module('book')
             });
         }
 
+        $scope.delete = function(id) {
+            book.delete(id, function() {
+                $scope.load();
+            });
+        }
+
         $scope.form = {};
 
         $scope.load();
