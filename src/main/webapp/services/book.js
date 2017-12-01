@@ -3,6 +3,9 @@
 angular.module('book')
     .service('book', function ($http) {
         return {
+            get: function (id, success) {
+                return $http.get("/rest/book/" + id).then(success);
+            },
             list: function (success) {
                 return $http.get("/rest/book").then(success);
             },
