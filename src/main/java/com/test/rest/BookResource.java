@@ -1,35 +1,35 @@
 package com.test.rest;
 
-import com.test.dao.TestBeanDAO;
-import com.test.data.TestBean;
+import com.test.dao.BookBeanDAO;
+import com.test.data.BookBean;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
-@Path("/test")
+@Path("/book")
 @Produces("application/json;charset=utf-8")
-@Api(value = "test", description = "Test service")
-public class TestResource {
+@Api(value = "book", description = "Book service")
+public class BookResource {
 
-    private TestBeanDAO testBeanDAO;
+    private BookBeanDAO bookBeanDAO;
 
-    public TestResource() {
-        this.testBeanDAO = new TestBeanDAO();
+    public BookResource() {
+        this.bookBeanDAO = new BookBeanDAO();
     }
 
     @GET
-    @ApiOperation("list test objects")
+    @ApiOperation("list book objects")
     public Response list() {
-        return Response.ok(this.testBeanDAO.list()).build();
+        return Response.ok(this.bookBeanDAO.list()).build();
     }
 
     @GET
     @Path("/{id}")
-    @ApiOperation("get test object")
+    @ApiOperation("get book object")
     public Response get(@PathParam("id") Long id) {
-        TestBean bean = this.testBeanDAO.get(id);
+        BookBean bean = this.bookBeanDAO.get(id);
         if (bean == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
@@ -38,21 +38,21 @@ public class TestResource {
 
     @POST
     @Consumes("application/json;charset=utf-8")
-    @ApiOperation("save test object")
-    public Response save(TestBean bean) {
-        this.testBeanDAO.save(bean);
+    @ApiOperation("save book object")
+    public Response save(BookBean bean) {
+        this.bookBeanDAO.save(bean);
         return Response.ok().build();
     }
 
     @DELETE
     @Path("/{id}")
-    @ApiOperation("delete test object")
+    @ApiOperation("delete book object")
     public Response delete(@PathParam("id") Long id) {
-        TestBean bean = this.testBeanDAO.get(id);
+        BookBean bean = this.bookBeanDAO.get(id);
         if (bean == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
-        this.testBeanDAO.delete(bean);
+        this.bookBeanDAO.delete(bean);
         return Response.ok().build();
     }
 }

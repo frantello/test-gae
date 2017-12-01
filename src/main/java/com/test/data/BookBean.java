@@ -10,8 +10,8 @@ import com.wordnik.swagger.annotations.ApiModel;
  */
 @Entity
 @Cache
-@ApiModel("Test object")
-public class TestBean {
+@ApiModel("Bean object")
+public class BookBean {
 
     @Id
     private Long id;
