@@ -1,5 +1,5 @@
 <h3>List of books</h3>
-<div ng-repeat="item in list">
+<div ng-repeat="item in list | orderBy:'author'">
     <a href="/#/{{item.id}}">{{item.name}} - {{item.author}}</a>
 </div>
 
