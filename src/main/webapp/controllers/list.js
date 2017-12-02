@@ -23,13 +23,18 @@ angular.module('book')
         }
 
         $scope.search = function() {
+            if (!$scope.text) {
+                $scope.clear();
+                return;
+            }
+
             book.search($scope.text, function(list) {
                 $scope.list = list.data;
             });
         }
 
         $scope.clear = function() {
-            $scope.text = "";
+            $scope.text = undefined;
             $scope.load();
         }
 

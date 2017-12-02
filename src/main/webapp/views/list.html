@@ -1,32 +1,31 @@
 <div class="row">
-</div>
-<div class="row">
     <div class="four columns">
         <h3>New book</h3>
-        <div>
+        <form name="book">
             <div>
-                <label for="name">Name</label>
-                <input type="text" id="name" ng-model="form.name" />
+                <label for="name">Name *</label>
+                <input type="text" id="name" ng-model="form.name" required />
             </div>
             <div>
-                <label for="author">Author</label>
-                <input type="text" id="author" ng-model="form.author" />
+                <label for="author">Author *</label>
+                <input type="text" id="author" ng-model="form.author" required />
             </div>
             <div>
-                <label for="year">Year</label>
-                <input type="number" id="year" ng-model="form.year" />
+                <label for="year">Year *</label>
+                <input type="number" id="year" ng-model="form.year" required />
             </div>
             <div>
-                <label for="gender">Gender</label>
-                <input type="text" id="gender" ng-model="form.gender" />
+                <label for="gender">Gender *</label>
+                <input type="text" id="gender" ng-model="form.gender" required />
             </div>
-            <button class="button-primary" ng-click="save()">Save</button>
-        </div>
+            <p>* Required</p>
+            <button class="button-primary" ng-click="book.$valid && save()">Save</button>
+        </form>
     </div>
 
     <div class="eight columns">
         <h3>List of books</h3>
-        <form ng-submit="search()">
+        <form>
             <label for="gender">Search</label>
             <input type="search" ng-model="text" />
             <button class="button-primary" ng-click="search()">Search</button>
@@ -48,5 +47,6 @@
             </tr>
             </tbody>
         </table>
+        <strong ng-hide="list.length">No books found</strong>
     </div>
 </div>
