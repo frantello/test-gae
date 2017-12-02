@@ -5,13 +5,14 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 import com.wordnik.swagger.annotations.ApiModel;
+import com.wordnik.swagger.annotations.ApiModelProperty;
 
 /**
  * Test data bean
  */
 @Entity
 @Cache
-@ApiModel("Bean object")
+@ApiModel("Book object")
 public class BookBean {
 
     public static final String FIELD_ID = "id";
@@ -25,15 +26,20 @@ public class BookBean {
     public static final String FIELD_GENDER = "gender";
 
     @Id
+    @ApiModelProperty(value = "Books's ID")
     private Long id;
 
+    @ApiModelProperty(value = "Books's name", required = true)
     private String name;
 
+    @ApiModelProperty(value = "Books's author", required = true)
     @Index
     private String author;
 
+    @ApiModelProperty(value = "Books's year", required = true)
     private Integer year;
 
+    @ApiModelProperty(value = "Books's gender", required = true)
     private String gender;
 
     public Long getId() {
