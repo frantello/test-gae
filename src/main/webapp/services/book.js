@@ -14,6 +14,9 @@ angular.module('book')
             },
             delete: function (id, success) {
                 return $http.delete("/rest/book/" + id).then(success);
+            },
+            search: function (text, success) {
+                return $http.get("/rest/book/search/" + text).then(success);
             }
         };
     });

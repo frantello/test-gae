@@ -13,6 +13,16 @@ import com.wordnik.swagger.annotations.ApiModel;
 @ApiModel("Bean object")
 public class BookBean {
 
+    public static final String FIELD_ID = "id";
+
+    public static final String FIELD_NAME = "name";
+
+    public static final String FIELD_AUTHOR = "author";
+
+    public static final String FIELD_YEAR = "year";
+
+    public static final String FIELD_GENDER = "gender";
+
     @Id
     private Long id;
 

@@ -55,4 +55,11 @@ public class BookResource {
         this.bookBeanDAO.delete(bean);
         return Response.ok().build();
     }
+
+    @GET
+    @Path("/search/{text}")
+    @ApiOperation("search book object")
+    public Response search(@PathParam("text") String text) {
+        return Response.ok(this.bookBeanDAO.search(text)).build();
+    }
 }

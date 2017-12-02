@@ -3,6 +3,7 @@ package com.test.dao;
 import com.googlecode.objectify.ObjectifyService;
 import com.test.data.BookBean;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -13,6 +14,11 @@ public class BookBeanDAO {
 
     private static final Logger LOGGER = Logger.getLogger(BookBeanDAO.class.getName());
 
+    private BookSearchService bookSearchService;
+
+    public BookBeanDAO() {
+        bookSearchService = new BookSearchService();
+    }
     /**
      * @return list of book beans
      */
@@ -40,6 +46,8 @@ public class BookBeanDAO {
         }
         LOGGER.info("Saving bean " + bean.getId());
         ObjectifyService.ofy().save().entity(bean).now();
+
+        bookSearchService.index(bean);
     }
 
     /**
@@ -52,5 +60,17 @@ public class BookBeanDAO {
         }
         LOGGER.info("Deleting bean " + bean.getId());
         ObjectifyService.ofy().delete().entity(bean);
+
+        bookSearchService.unindex(bean);
+    }
+
+    public Collection<BookBean> search(String text) {
+        if (text == null) {
+            throw new IllegalArgumentException("null book text");
+        }
+
+        LOGGER.info("Search bean containing " + text);
+
+        return ObjectifyService.ofy().load().type(BookBean.class).ids(bookSearchService.search(text)).values();
     }
 }

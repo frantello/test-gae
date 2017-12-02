@@ -22,6 +22,17 @@ angular.module('book')
             });
         }
 
+        $scope.search = function() {
+            book.search($scope.text, function(list) {
+                $scope.list = list.data;
+            });
+        }
+
+        $scope.clear = function() {
+            $scope.text = "";
+            $scope.load();
+        }
+
         $scope.form = {};
 
         $scope.load();
