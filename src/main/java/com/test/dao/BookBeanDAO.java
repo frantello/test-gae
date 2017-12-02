@@ -24,7 +24,7 @@ public class BookBeanDAO {
      */
     public List<BookBean> list() {
         LOGGER.info("Retrieving list of beans");
-        return ObjectifyService.ofy().load().type(BookBean.class).list();
+        return ObjectifyService.ofy().load().type(BookBean.class).order(BookBean.FIELD_AUTHOR).list();
     }
 
     /**
