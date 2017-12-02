@@ -18,6 +18,11 @@ public class PartialTextTokenizer {
     }
 
     public String tokenize(String text) {
+
+        if (text == null) {
+            return SEPARATOR;
+        }
+
         StringBuilder tokens = new StringBuilder();
 
         for (String word : text.split(SEPARATOR)) {
